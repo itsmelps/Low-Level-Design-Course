@@ -1,0 +1,11 @@
+Virtual Functions
+
+A virtual function in C++ is a member function of a class that is declared using the virtual keyword and allows runtime polymorphism. It enables a function defined in a base class to be overridden in a derived class so that the function call is resolved at runtime based on the actual object type rather than the pointer type. The base class usually provides an implementation of the function, and derived classes may override it if they need specialized behavior. Overriding a virtual function is optional, and if the derived class does not override it, the base class implementation will be used.
+
+Pure Virtual Functions
+
+A pure virtual function is a virtual function that is declared by assigning = 0 in its declaration. It represents a function that has no usable implementation in the base class and must be implemented by derived classes. A class that contains at least one pure virtual function becomes an abstract class, meaning objects of that class cannot be created directly. Pure virtual functions are used when a base class is meant only to define an interface or common structure for derived classes, while leaving the actual implementation to them.
+
+Virtual Destructors
+
+A virtual destructor is a destructor declared with the virtual keyword in a base class. It ensures that when an object of a derived class is deleted using a base class pointer, the correct destructors are called in the proper order. Without a virtual destructor, deleting a derived object through a base class pointer may only call the base class destructor, leaving the derived part of the object undestroyed and potentially causing resource leaks. Declaring the base class destructor as virtual ensures that the derived destructor runs first, followed by the base destructor, allowing proper cleanup of all resources.
